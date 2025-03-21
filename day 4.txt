@@ -1,0 +1,171 @@
+METHOD OVERLOADING:
+------------------
+
+public class Main{
+  public static void main(String[]args){
+      
+ Shoppingitems ref=new Shoppingitems();
+ref.additems("Laptop",50000);
+ref.additems("Keyboard",1000,2);
+ref.additems("Mouse",2000,3,30);
+} 
+}
+
+class Shoppingitems{
+ void additems(String item_name,int price){
+   System.out.println("item Name:"+item_name+" , "+"Original price:"+price);
+}
+void additems(String item_name,int price,int item_quantity){
+int totalprice=price*item_quantity;
+System.out.println("item Name:"+item_name+" , "+"Item quantity:"+item_quantity+"Total price:"+totalprice);
+}
+void additems(String item_name,int price,int item_quantity,int discount){
+    double amount=(price*item_quantity)-discount;
+    System.out.println("item Name"+item_name+"Item quantity"+item_quantity+"Total amount"+amount);
+}
+}
+output:
+item Name-Laptop,   Original price:50000
+item Name-Keyboard, Item quantity:2, Total price:2000
+item Name-Mouse,    Item quantity:3, Total amount:5970.0
+
+METHOD OVER WRITING:
+--------------------
+
+public class Main{
+  public static void main(String[]args){
+     Topayvia ref; 
+     ref=new Topayvia();
+     ref.pay(2000);
+
+     ref=new Creditupi();
+     ref.pay(2000);
+     
+     ref= new Gpay();
+     ref.pay(3000);
+} 
+}
+
+class Topayvia{
+    void pay(int amount){
+        System.out.println("In hand amount:"+amount);  
+    }
+}
+class Creditupi extends Topayvia{
+    void pay(int amount){
+        System.out.println("UPI Payment:"+amount);
+    }
+}
+class Gpay extends Topayvia{
+    void pay(int amount){
+    System.out.println("Gpay Payment:"+amount);
+}
+}
+ouput:
+In hand amount:2000
+UPI Payment:2000
+Gpay Payment:3000
+
+ABSTRACTION:
+-----------
+
+public class Main{
+  public static void main(String[]args){
+      Vechicle ref=new Bike();
+     ref.Startsusing();
+} 
+}
+
+abstract class Vechicle{
+    abstract void Startsusing();
+}
+class Bike extends Vechicle{
+    void Startsusing(){
+        System.out.println("Bike starts with Kick...");
+    }
+}
+output:
+Bike starts with Kick...
+
+INTERFACE:
+----------
+
+public class Main{
+  public static void main(String[]args){
+     Subclass ref=new Subclass();
+     ref.Sending();
+      ref.Sended();
+} 
+}
+interface Superclass1{
+    void Sending();
+}
+interface Superclass2{
+    void Sended();
+}
+class Subclass implements Superclass1,Superclass2{
+    public void Sending(){
+    System.out.println("Superclass 1");
+    }
+    
+    public void Sended(){
+    System.out.println("Superclass 2");
+    }
+}
+output:
+Superclass 1
+Superclass 2
+
+employee salary for full-time,part-time and landarey 
+
+class Main {
+    public static void main(String[] args) {
+      Employee ref=new Employee();
+      ref.pay(9000);
+      ref.pay(2,1000);
+      ref.pay(6,900,100);
+      
+    }
+}
+class Employee{
+    void pay(int fixedsalary)
+    {
+        System.out.println("Salary:"+fixedsalary);
+        
+    }
+    void pay(int hours,int salary){
+        int pay=hours*salary;
+        System.out.println("Total Hours:"+pay);
+    }
+     void pay(int hours, int salary,int bonus){
+         int totalhours=(hours*salary)+bonus;
+        
+         System.out.println("Total Hours:"+totalhours);
+}
+}
+output:
+Salary:9000
+Total Hours:2000
+Total Hours:5500
+
+EXCEPTION HANDLING:
+------------------
+try,catch,finally-->
+
+class Main {
+    public static void main(String[] args) {
+      try{
+          int num=10/0;
+          
+      }
+      catch(ArithmeticException e){
+          System.out.println("Cannot divide by zero"+e.getMessage());
+      }
+      finally{
+          System.out.println("Execution completed");
+      }
+    }
+}
+output:
+Cannot divide by zero/ by zero
+Execution completed
